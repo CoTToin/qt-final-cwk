@@ -1,0 +1,45 @@
+//
+//
+//
+
+#ifndef CW2_THE_BUTTON_H
+#define CW2_THE_BUTTON_H
+
+#include <QPushButton>
+#include <QUrl>
+
+class TheButtonInfo {
+
+public:
+    QUrl* url; // video file to play
+    QIcon* icon; // icon to display
+
+    TheButtonInfo ( QUrl* url, QIcon* icon) : url (url), icon (icon) {}
+};
+
+class TheButton : public QPushButton {
+    Q_OBJECT
+
+public:
+    TheButtonInfo* info;
+
+    TheButton(QWidget *parent) :  QPushButton(parent) {
+        setIconSize(QSize(200,110));
+        // ==================== 修改部分开始 ====================
+        // 移除原有的连接，在init中设置
+        // ==================== 修改部分结束 ====================
+    }
+
+    void init(TheButtonInfo* i);
+
+private slots:
+    // ==================== 修改部分开始 ====================
+    void onJumpToClicked();
+    // ==================== 修改部分结束 ====================
+
+signals:
+    void jumpTo(TheButtonInfo*);
+
+};
+
+#endif //CW2_THE_BUTTON_H
