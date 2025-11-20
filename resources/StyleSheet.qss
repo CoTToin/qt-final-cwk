@@ -1,0 +1,5 @@
+QWidget {
+    background: #f0f0f0;   /* 经典Qt灰白背景 */
+    color: black;
+}
+
