@@ -23,19 +23,15 @@ class TheButton : public QPushButton {
 public:
     TheButtonInfo* info;
 
-    TheButton(QWidget *parent) :  QPushButton(parent) {
-        setIconSize(QSize(200,110));
-        // ==================== 修改部分开始 ====================
-        // 移除原有的连接，在init中设置
-        // ==================== 修改部分结束 ====================
+     TheButton(QWidget *parent) :  QPushButton(parent) {
+         setIconSize(QSize(200,110));
+         connect(this, SIGNAL(released()), this, SLOT (clicked() )); // if QPushButton clicked...then run clicked() below
     }
 
     void init(TheButtonInfo* i);
 
 private slots:
-    // ==================== 修改部分开始 ====================
-    void onJumpToClicked();
-    // ==================== 修改部分结束 ====================
+    void clicked();
 
 signals:
     void jumpTo(TheButtonInfo*);
