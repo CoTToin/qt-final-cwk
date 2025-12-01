@@ -9,12 +9,16 @@ SOURCES += \
     the_button.cpp \
     the_player.cpp \
     tomeo.cpp \
-    videolistpage.cpp
+    home.cpp \
+    record.cpp
 
 HEADERS += \
     the_button.h \
     the_player.h \
-    videolistpage.h
+    home.h\
+    record.h
+
+RESOURCES += mima.qrc
 
 MOC_DIR = moc
 UI_DIR = ui
